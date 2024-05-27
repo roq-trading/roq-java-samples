@@ -3,11 +3,14 @@ cmake_minimum_required(VERSION 3.12)
 # cmake
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
-                      "${CMAKE_CURRENT_SOURCE_DIR}/autogen/cmake" ${CMAKE_MODULE_PATH})
+                      "${CMAKE_CURRENT_SOURCE_DIR}/scripts/cmake" ${CMAKE_MODULE_PATH})
 
-# config
+# conda
 
-include(RoqConfig)
+if(DEFINED ENV{CONDA_PREFIX} AND NOT DEFINED ENV{CONDA_BUILD})
+  set(CMAKE_INSTALL_PREFIX $ENV{CONDA_PREFIX})
+  set(CMAKE_FIND_ROOT_PATH $ENV{CONDA_PREFIX})
+endif()
 
 # version (using git tag)
 

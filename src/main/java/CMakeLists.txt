@@ -1,6 +1,4 @@
-set(TARGET_NAME roq)
-
-add_subdirectory(com)
+set(TARGET_NAME roq-samples)
 
 set(JAR_NAME_VERSION ${TARGET_NAME}-${CMAKE_PROJECT_VERSION})
 set(JAR_NAME ${TARGET_NAME})
@@ -16,15 +14,17 @@ file(
 
 message("SOURCE_DIR=${SOURCE_DIR}")
 message("JAVA_SOURCES=${JAVA_SOURCES}")
+message("TARGET_DIR=${TARGET_DIR}")
 
 set(SOURCES ${JAVA_SOURCES} MANIFEST META-INF/MANIFEST.MF)
 
-add_jar(${JAR_NAME_VERSION} ${SOURCES})
+add_jar(
+  ${JAR_NAME_VERSION}
+  SOURCES ${SOURCES}
+  INCLUDE_JARS ${CMAKE_INSTALL_PREFIX}/share/java/roq.jar)
 
 add_custom_target(jar_symlink ALL COMMAND ${CMAKE_COMMAND} -E create_symlink
                                           ${JAR_NAME_VERSION}.jar ${JAR_NAME}.jar)
-
-add_dependencies(${JAR_NAME_VERSION} autogen_java)
 
 # install
 

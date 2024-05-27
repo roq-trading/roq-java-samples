@@ -1,9 +1,9 @@
-package com.roq;
+package com.roq.samples;
 
-import com.roq.Strategy;
 import com.roq.client.Config;
 import com.roq.client.Dispatcher;
 import com.roq.client.Settings;
+import com.roq.samples.Strategy;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.locks.LockSupport;

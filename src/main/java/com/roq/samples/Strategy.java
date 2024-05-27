@@ -1,11 +1,40 @@
-package com.roq;
+package com.roq.samples;
 
+import com.roq.BatchBegin;
+import com.roq.BatchEnd;
+import com.roq.CancelAllOrdersAck;
+import com.roq.Connected;
 import com.roq.CreateOrder;
+import com.roq.Disconnected;
+import com.roq.DownloadBegin;
+import com.roq.DownloadEnd;
+import com.roq.ExternalLatency;
+import com.roq.FundsUpdate;
+import com.roq.GatewaySettings;
+import com.roq.GatewayStatus;
 import com.roq.MarginMode;
+import com.roq.MarketByOrderUpdate;
+import com.roq.MarketByPriceUpdate;
+import com.roq.MarketStatus;
+import com.roq.MessageInfo;
+import com.roq.OrderAck;
 import com.roq.OrderType;
+import com.roq.OrderUpdate;
 import com.roq.PositionEffect;
+import com.roq.PositionUpdate;
+import com.roq.RateLimitTrigger;
+import com.roq.RateLimitsUpdate;
+import com.roq.Ready;
+import com.roq.ReferenceData;
 import com.roq.Side;
+import com.roq.Start;
+import com.roq.StatisticsUpdate;
+import com.roq.Stop;
+import com.roq.StreamStatus;
 import com.roq.TimeInForce;
+import com.roq.TopOfBook;
+import com.roq.TradeSummary;
+import com.roq.TradeUpdate;
 import com.roq.client.Dispatcher;
 import com.roq.client.Handler;
 import java.lang.Float;
@@ -114,28 +143,7 @@ public final class Strategy implements Handler {
   @Override
   public void handle(MessageInfo message_info, MarketByPriceUpdate market_by_price_update) {
     System.out.println("message_info={" + message_info + "}, market_by_price_update={" + market_by_price_update + "}");
-    if (latch)
-      return;
-    latch = true;
-    var create_order = new CreateOrder(
-        "A1",
-        1234,
-        "deribit",
-        "BTC-PERPETUAL",
-        Side.BUY,
-        null, // position_effect
-        MarginMode.UNDEFINED,
-        Float.NaN,
-        OrderType.LIMIT,
-        TimeInForce.GTC,
-        null, // execution_instructions
-        null, // request_template
-        1.0,
-        32000.0,
-        Float.NaN,
-        null, // routing_id
-        0);
-    dispatcher.send(create_order, 0);
+    try_trade(); // note!
   }
 
   @Override
@@ -185,5 +193,30 @@ public final class Strategy implements Handler {
   @Override
   public void handle(MessageInfo message_info, FundsUpdate funds_update) {
     System.out.println("message_info={" + message_info + "}, funds_update={" + funds_update + "}");
+  }
+
+  private void try_trade() {
+    if (latch)
+      return;
+    latch = true;
+    var create_order = new CreateOrder(
+        "A1",
+        1234,
+        "deribit",
+        "BTC-PERPETUAL",
+        Side.BUY,
+        null, // position_effect
+        MarginMode.UNDEFINED,
+        Float.NaN,
+        OrderType.LIMIT,
+        TimeInForce.GTC,
+        null, // execution_instructions
+        null, // request_template
+        1.0,
+        32000.0,
+        Float.NaN,
+        null, // routing_id
+        0);
+    dispatcher.send(create_order, 0);
   }
 }
