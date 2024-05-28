@@ -59,7 +59,8 @@ cmake . && make -j4 && make install
 ```bash
 java \
   -Djava.library.path=$CONDA_PREFIX/lib \
-  -jar roq-samples.jar \
+  -classpath $CONDA_PREFIX/share/java/roq.jar:$CONDA_PREFIX/share/java/roq-samples.jar \
+  com.roq.samples.Main \
   $HOME/run/deribit.sock
 ```
 

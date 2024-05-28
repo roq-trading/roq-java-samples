@@ -7,5 +7,6 @@ PREFIX=""
 
 $PREFIX java \
   -Djava.library.path=$CONDA_PREFIX/lib \
-  -jar roq-samples.jar \
+  -cp $CONDA_PREFIX/share/java/roq.jar:roq-samples.jar \
+  com.roq.samples.Main \
   $@
