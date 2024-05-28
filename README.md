@@ -44,6 +44,12 @@ conda install -y --channel https://roq-trading.com/conda/stable roq-java
 conda install -y --channel https://roq-trading.com/conda/unstable roq-java
 ```
 
+### Third-party
+
+```bash
+conda install -y openjdk
+```
+
 
 ## Building
 
