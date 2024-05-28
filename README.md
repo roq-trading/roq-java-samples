@@ -32,16 +32,10 @@ If you want to build from source.
 
 Install Roq's Java bindings
 
-### Stable Channel
-
-```bash
-conda install -y --channel https://roq-trading.com/conda/stable roq-java
-```
-
-### Unstable Channel
-
-```bash
-conda install -y --channel https://roq-trading.com/conda/unstable roq-java
+| Channel  | Command                                                                      |
+| -------- | :--------------------------------------------------------------------------: |
+| stable   | `conda install -y --channel https://roq-trading.com/conda/stable roq-java`   |
+| unstable | `conda install -y --channel https://roq-trading.com/conda/unstable roq-java` |
 ```
 
 ### Third-party
