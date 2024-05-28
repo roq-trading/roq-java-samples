@@ -1,6 +1,6 @@
 # roq-java-samples
 
-Samples demonstrating how to use the Java bindings.
+Example projects demonstrating how to use Roq's Java bindings.
 
 
 ## Prerequisites
