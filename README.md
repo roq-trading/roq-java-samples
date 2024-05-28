@@ -3,9 +3,55 @@
 Example projects demonstrating how to use Roq's Java bindings.
 
 
+## Operating Systems
+
+* Linux (x86-64, AArch64)
+* macOS (Arm64, x86-64)
+
+
+## Installing
+
+If you just want to install the project.
+
+### Stable Channel
+
+```bash
+conda install -y --channel https://roq-trading.com/conda/stable roq-java-samples
+```
+
+### Unstable Channel
+
+```bash
+conda install -y --channel https://roq-trading.com/conda/unstable roq-java-samples
+```
+
+
 ## Prerequisites
 
-You should run this from a conda environment having the `roq-java` package installed.
+If you want to build from source.
+
+Install Roq's Java bindings
+
+### Stable Channel
+
+```bash
+conda install -y --channel https://roq-trading.com/conda/stable roq-java
+```
+
+### Unstable Channel
+
+```bash
+conda install -y --channel https://roq-trading.com/conda/unstable roq-java
+```
+
+
+## Building
+
+If you want to build from source.
+
+```bash
+cmake . && make -j4 && make install
+```
 
 
 ## Using
