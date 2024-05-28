@@ -1,0 +1,38 @@
+package:
+  name: roq-java-samples
+  version: {{ GIT_DESCRIBE_TAG }}
+
+source:
+  git_url: ..
+
+build:
+  skip: true  # [not unix]
+  number: {{ ROQ_BUILD_NUMBER if ROQ_BUILD_NUMBER is defined else GIT_DESCRIBE_NUMBER }}
+  script_env:
+    - ROQ_BUILD_NUMBER
+    - ROQ_BUILD_TYPE
+  ignore_run_exports:
+    - graalpy-graalvm
+  ignore_run_exports_from:
+    - openjdk
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - clangdev
+    - cmake
+    - jinja2
+    - make
+    - openjdk
+    - pkg-config
+  host:
+    - roq-java
+
+about:
+  home: https://roq-trading.com
+  doc_url: https://roq-trading.com/docs
+  dev_url: https://github.com/roq-trading
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: Roq's Java Samples
