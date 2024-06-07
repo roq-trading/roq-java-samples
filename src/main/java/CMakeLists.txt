@@ -23,8 +23,7 @@ add_jar(
   SOURCES ${SOURCES}
   INCLUDE_JARS ${CMAKE_INSTALL_PREFIX}/share/java/roq.jar)
 
-add_custom_target(jar_symlink ALL COMMAND ${CMAKE_COMMAND} -E create_symlink
-                                          ${JAR_NAME_VERSION}.jar ${JAR_NAME}.jar)
+add_custom_target(jar_symlink ALL COMMAND ${CMAKE_COMMAND} -E create_symlink ${JAR_NAME_VERSION}.jar ${JAR_NAME}.jar)
 
 # install
 
