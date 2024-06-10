@@ -25,6 +25,7 @@ requirements:
     - make
     - openjdk
     - pkg-config
+    - roq-autogen
   host:
     - roq-java
 
