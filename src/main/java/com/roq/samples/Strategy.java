@@ -22,6 +22,7 @@ import com.roq.OrderType;
 import com.roq.OrderUpdate;
 import com.roq.PositionEffect;
 import com.roq.PositionUpdate;
+import com.roq.QuantityType;
 import com.roq.RateLimitTrigger;
 import com.roq.RateLimitsUpdate;
 import com.roq.Ready;
@@ -207,6 +208,7 @@ public final class Strategy implements Handler {
         Side.BUY,
         null, // position_effect
         MarginMode.UNDEFINED,
+        QuantityType.UNDEFINED,
         Float.NaN,
         OrderType.LIMIT,
         TimeInForce.GTC,
