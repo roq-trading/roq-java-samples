@@ -18,6 +18,8 @@ requirements:
     - {{ compiler('cxx') }}
     - clang-format
     - cmake
+    - coreutils                                                                                                                                                    
+    - git
     - jinja2
     - make
     - openjdk
