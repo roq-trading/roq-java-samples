@@ -214,9 +214,10 @@ public final class Strategy implements Handler {
         TimeInForce.GTC,
         null, // execution_instructions
         null, // request_template
-        1.0,
-        32000.0,
-        Float.NaN,
+        1.0, // quantity
+        32000.0, // price
+        Float.NaN, // stop_price
+        Float.NaN, // leverage
         null, // routing_id
         0);
     dispatcher.send(create_order, 0);
